@@ -4,6 +4,7 @@ import bandeau.Bandeau;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.LinkedHashMap;
 
 public class ExempleDUtilisation {
 
@@ -17,8 +18,16 @@ public class ExempleDUtilisation {
         Color back = monBandeau.getBackground();
         Color fore = monBandeau.getForeground();
 
+        //création effets
         Zoom zoom1 = new Zoom();
         Rainbow rainbow1 = new Rainbow();
+
+        //création séquences
+        LinkedHashMap<Effet, Integer> effets1 = new LinkedHashMap<>();
+        effets1.put(zoom1, 2);
+        effets1.put(rainbow1, 5);
+        Scenario scenario1 = new Scenario(effets1);
+
         monBandeau.setMessage("On va tester le Zoom");
         monBandeau.sleep(1000);
         monBandeau.setMessage("GO !!");
@@ -30,8 +39,18 @@ public class ExempleDUtilisation {
         monBandeau.sleep(1000);
         monBandeau.setMessage("╩ ☼ Magnifique ☼ ╩");
         rainbow1.appliquerA(monBandeau);
-        monBandeau.sleep(3000);
+        monBandeau.sleep(1000);
+
+
+        monBandeau.setMessage("Appliquons une séquence ! ");
+        monBandeau.sleep(1000);
+        monBandeau.setMessage(" SEQUENCE EN COURS");
+        scenario1.appliquerA(monBandeau);
+
         monBandeau.close();
+
+
+
 
 
 

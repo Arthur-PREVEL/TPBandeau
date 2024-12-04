@@ -7,8 +7,6 @@ import java.util.LinkedHashMap;
 
 public class Scenario{
     //attributs
-    private int id;
-    private String nom;
     private LinkedHashMap<Effet, Integer> effets;
 
     //méthodes
@@ -24,9 +22,8 @@ public class Scenario{
     }
 
     //Constructeur
-    public Scenario(int id, String nom, LinkedHashMap<Effet, Integer> effets){
-        this.id = id;
-        this.nom = nom;
+    public Scenario( LinkedHashMap<Effet, Integer> effets){
+
         this.effets = effets;
     }
 
