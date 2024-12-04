@@ -17,7 +17,26 @@ public class ExempleDUtilisation {
         Color back = monBandeau.getBackground();
         Color fore = monBandeau.getForeground();
 
-        monBandeau.setMessage("Hello");
+        Zoom zoom1 = new Zoom();
+        Rainbow rainbow1 = new Rainbow();
+        monBandeau.setMessage("On va tester le Zoom");
+        monBandeau.sleep(1000);
+        monBandeau.setMessage("GO !!");
+        monBandeau.sleep(1000);
+        zoom1.appliquerA(monBandeau);
+        monBandeau.sleep(1000);
+
+        monBandeau.setMessage("On va tester le Rainbow");
+        monBandeau.sleep(1000);
+        monBandeau.setMessage("╩ ☼ Magnifique ☼ ╩");
+        rainbow1.appliquerA(monBandeau);
+        monBandeau.sleep(3000);
+        monBandeau.close();
+
+
+
+
+ /*     monBandeau.setMessage("Hello");
         monBandeau.sleep(1000);
         monBandeau.setMessage("On va changer de police");
         monBandeau.sleep(1000);
@@ -57,5 +76,7 @@ public class ExempleDUtilisation {
         monBandeau.setMessage("Terminé");
         monBandeau.sleep(3000);
         monBandeau.close();
+
+  */
     }
 }
