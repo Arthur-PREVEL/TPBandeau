@@ -27,5 +27,8 @@ public class Rainbow extends Effet {
         bandeau.setForeground(Color.BLUE);
         bandeau.setBackground(Color.PINK);
         bandeau.sleep(200);
+        bandeau.setForeground(Color.BLACK);
+        bandeau.setBackground(Color.WHITE);
+        bandeau.sleep(200);
     }
 }

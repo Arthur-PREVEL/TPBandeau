@@ -4,6 +4,7 @@ import bandeau.Bandeau;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class ExempleDUtilisation {
@@ -21,13 +22,28 @@ public class ExempleDUtilisation {
         //création effets
         Zoom zoom1 = new Zoom();
         Rainbow rainbow1 = new Rainbow();
+        Rotation rotation1 = new Rotation();
 
         //création séquences
-        LinkedHashMap<Effet, Integer> effets1 = new LinkedHashMap<>();
-        effets1.put(zoom1, 2);
-        effets1.put(rainbow1, 5);
-        Scenario scenario1 = new Scenario(effets1);
+        ArrayList<Effet> effets = new ArrayList<>();
 
+        ArrayList<Integer> nbRepetitions = new ArrayList<>();
+
+        effets.add(zoom1);
+        nbRepetitions.add(2);
+        effets.add(rainbow1);
+        nbRepetitions.add(1);
+        effets.add(zoom1);
+        nbRepetitions.add(1);
+        effets.add(rotation1);
+        nbRepetitions.add(1);
+        effets.add(zoom1);
+        nbRepetitions.add(1);
+        effets.add(rainbow1);
+        nbRepetitions.add(5);
+        Scenario scenario1 = new Scenario(effets, nbRepetitions);
+
+        //test zoom
         monBandeau.setMessage("On va tester le Zoom");
         monBandeau.sleep(1000);
         monBandeau.setMessage("GO !!");
@@ -35,13 +51,24 @@ public class ExempleDUtilisation {
         zoom1.appliquerA(monBandeau);
         monBandeau.sleep(1000);
 
+        //test rainbow
         monBandeau.setMessage("On va tester le Rainbow");
         monBandeau.sleep(1000);
-        monBandeau.setMessage("╩ ☼ Magnifique ☼ ╩");
+        monBandeau.setMessage("☼ Magnifique ☼");
         rainbow1.appliquerA(monBandeau);
         monBandeau.sleep(1000);
 
+        //test rotation
+        monBandeau.setMessage("On va tester la rotation");
+        monBandeau.sleep(1000);
+        monBandeau.setMessage("☼ ça tourne ☼");
+        rotation1.appliquerA(monBandeau);
+        monBandeau.sleep(1000);
 
+
+
+
+        //test scenario
         monBandeau.setMessage("Appliquons une séquence ! ");
         monBandeau.sleep(1000);
         monBandeau.setMessage(" SEQUENCE EN COURS");

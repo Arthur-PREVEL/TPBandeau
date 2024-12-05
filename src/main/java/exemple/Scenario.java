@@ -7,24 +7,27 @@ import java.util.LinkedHashMap;
 
 public class Scenario{
     //attributs
-    private LinkedHashMap<Effet, Integer> effets;
+    private ArrayList<Effet> effets; //ArrayList pour pouvoir conserver l'ordre et accepter les doublons
+    private ArrayList<Integer> nbRepetitions;
+
 
     //méthodes
-    public void ajouterEffet(Effet effet, int nbRepetitions){
-        effets.put(effet, nbRepetitions);
+    public void ajouterEffet(Effet effet, Integer nbRepetitions){
+
+        this.effets.add(effet);
+        this.nbRepetitions.add( nbRepetitions );
     }
-    public void appliquerA(Bandeau bandeau){
-        for(Effet effet : effets.keySet()){
-            for( int i = 0; i < effets.get(effet) ; i++){
-                effet.appliquerA(bandeau);
+    public void appliquerA(Bandeau bandeau) {
+        for (int i = 0; i < effets.size(); i++) {
+            for (int j = 0; j < nbRepetitions.get(i); j++) {
+                effets.get(i).appliquerA(bandeau);
             }
         }
     }
+        //Constructeur
+    public Scenario(ArrayList < Effet > effets, ArrayList < Integer > nbRepetitions) {
+            this.effets = effets;
+            this.nbRepetitions = nbRepetitions;
+        }
 
-    //Constructeur
-    public Scenario( LinkedHashMap<Effet, Integer> effets){
-
-        this.effets = effets;
     }
-
-}
